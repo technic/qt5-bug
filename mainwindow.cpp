@@ -22,14 +22,11 @@ void MainWindow::buildMenu()
 {
 	mMenu = new QMenu(ui->menu);
 
-	QAction *subact = new QAction(mMenu);
-	subact->setText("subact");
+	// these 2 lines causes the bug
+	mMenu->setStyleSheet("QMenu { background: rgba(240, 0, 0, 100%); }");
 	QMenu *submenu = new QMenu(mMenu);
-	subact->setMenu(submenu);
-	mMenu->addAction(subact);
 
 	mMenu->addAction(mSearchEditAction);
-
 }
 
 MainWindow::~MainWindow()
