@@ -1,6 +1,8 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 
+#include <QTimer>
+
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
@@ -10,6 +12,10 @@ MainWindow::MainWindow(QWidget *parent) :
 	mSearchEditAction = new QWidgetAction(this);
 	mSearchEditAction->setDefaultWidget(mSearchEdit);
 	buildMenu();
+
+	QTimer::singleShot(1000, this, &MainWindow::on_menu_clicked);
+	QTimer::singleShot(2000, this, &MainWindow::on_test_clicked);
+	QTimer::singleShot(3000, this, &MainWindow::on_menu_clicked);
 }
 
 void MainWindow::buildMenu()
